@@ -18,6 +18,7 @@ def train_model(model, feature, label, epochs, batch_size):
                         y=label,
                         batch_size=batch_size,
                         epochs=epochs)
+                        #Author: Fethi Tekyaygil. Furkan GÜMÜŞ'ün uyarısı ile batch_size değiştirildi! 
     trained_weight = model.get_weights()[0]
     trained_bias = model.get_weights()[1]
     hist = pd.DataFrame(history.history)
