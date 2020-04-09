@@ -47,9 +47,15 @@ def plot_the_model(trained_weight, trained_bias, feature, label):
     plt.show()
 
 
-""""" #Bu kısım, program çalıştığında bir hata vermektedir ve hatayı hala çözemedim. Çözünce güncelleyeceğim
 def plot_the_loss_curve(epochs, rmse):
     #Plot the loss curve, which shows loss vs. epoch.
+
+    #Author: Fethi Tekyaygil - Eğer değerimiz bir int değeriyse grafik çizebilmemiz için grafiğin diğer 
+    #ekseninde kalacak liste değeriyle aynı boyut uzunluğunda bir listeye ihtiyacımız var. Bu durumda rmse boyut uzuluğuna sahip bir listeye ihtiyacımız var. 
+    #Epoch zaten rmse'nin boyut uzunluğuna (10) eşit  bir int oldğu için onu 0 - kendi değer aralığında bir listeye çevirdik
+    if isinstance(epochs,int):        
+        epochs=list(range(epochs))
+    #Author: Fethi Tekyaygil
 
     plt.figure()
     plt.xlabel("Epoch")
@@ -59,8 +65,7 @@ def plot_the_loss_curve(epochs, rmse):
     plt.legend()
     plt.ylim([rmse.min() * 0.97, rmse.max()])
     plt.show()
-##
-"""""
+
 my_feature = np.array([1.0, 2.0,  3.0,  4.0,  5.0,  6.0,  7.0,  8.0,  9.0, 10.0, 11.0, 12.0])
 my_label = np.array([5.0, 8.8,  9.6, 14.2, 18.8, 19.5, 21.4, 26.8, 28.9, 32.0, 33.8, 38.2])
 
