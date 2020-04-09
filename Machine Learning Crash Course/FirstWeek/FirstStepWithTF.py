@@ -22,6 +22,7 @@ def train_model(model, feature, label, epochs, batch_size):
     trained_weight = model.get_weights()[0]
     trained_bias = model.get_weights()[1]
     hist = pd.DataFrame(history.history)
+    epochs = history.epoch
     rmse = hist["root_mean_squared_error"]
     return trained_weight, trained_bias, epochs, rmse
 
@@ -50,13 +51,6 @@ def plot_the_model(trained_weight, trained_bias, feature, label):
 
 def plot_the_loss_curve(epochs, rmse):
     #Plot the loss curve, which shows loss vs. epoch.
-
-    #Author: Fethi Tekyaygil - Eğer değerimiz bir int değeriyse grafik çizebilmemiz için grafiğin diğer 
-    #ekseninde kalacak liste değeriyle aynı boyut uzunluğunda bir listeye ihtiyacımız var. Bu durumda rmse boyut uzuluğuna sahip bir listeye ihtiyacımız var. 
-    #Epoch zaten rmse'nin boyut uzunluğuna (10) eşit  bir int oldğu için onu 0 - kendi değer aralığında bir listeye çevirdik
-    if isinstance(epochs,int):        
-        epochs=list(range(epochs))
-    #Author: Fethi Tekyaygil
 
     plt.figure()
     plt.xlabel("Epoch")
