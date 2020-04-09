@@ -16,7 +16,7 @@ def build_model(my_learning_rate):
 def train_model(model, feature, label, epochs, batch_size):
     history = model.fit(x=feature,
                         y=label,
-                        batch_size=None,
+                        batch_size=batch_size,
                         epochs=epochs)
     trained_weight = model.get_weights()[0]
     trained_bias = model.get_weights()[1]
